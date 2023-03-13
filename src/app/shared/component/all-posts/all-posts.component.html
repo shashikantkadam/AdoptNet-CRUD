@@ -1,0 +1,30 @@
+
+    <p-table [value]="postArray" [paginator]="true" [rows]="10" [responsive]="true">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>UserId</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-post>
+          <tr>
+            <td>{{ post.id }}</td>
+            <td>{{ post.UserId }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.body }}</td>
+            <td>
+              <button pButton type="button" icon="pi pi-pencil"  [routerLink]="['/updatepost/:id']" [queryParams]="{ id:post.id}"></button>
+            </td>
+              
+            <td>
+                <button pButton type="button" icon="pi pi-trash" (click)="OnPostDelete(post.id)"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+      
+    
